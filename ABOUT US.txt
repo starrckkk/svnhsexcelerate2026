@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ExceLerate</title>
+    <link rel="stylesheet" href="./ExceLerateStyle.css">
+</head>
+<body>
+
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+            </div>
+
+            <div class="menu">
+                <ul>
+                    <a href="./A.html"><img src="Exce.gif"></a> 
+                </ul>
+            </div>
+
+            <div class="search">
+                <input class="srch" type="search" name="" placeholder="Type To text">
+                <a href="#"> <button class="btn">Search</button></a>
+            </div>
+
+        </div> 
+        <div class="content">
+            <h1>Welcome to<br>ExceLerate</h1>
+            <p class="par"> The ultimate launchpad for small businesses</p>
+
+                <button class="cn"><a href="A.html">Start Now!</a></button>
+    </aside>
+</body>
+</html>

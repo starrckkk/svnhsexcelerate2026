@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ExceLerate - Excel Techniques for Business</title>
+<link rel="stylesheet" href="F.css">
+<script src="app.js" defer></script>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* Collapsible styles */
+.collapsible {
+    background-color: #f1f1f1;
+    color: #333;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    font-weight: bold;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.collapsible:hover {
+    background-color: #ddd;
+}
+
+.content {
+    padding: 0 15px;
+    display: none;
+    overflow: hidden;
+    background-color: #fafafa;
+    margin-bottom: 5px;
+    border-left: 3px solid #0078d4;
+}
+.collapsible {
+  position: relative;
+  padding-right: 25px;
+}
+
+/* Create arrow */
+.collapsible::after {
+  content: "";
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid #333;
+  border-bottom: 2px solid #333;
+  transform: translateY(-50%) rotate(45deg);
+  transition: transform 0.3s ease;
+}
+
+/* Rotate when active */
+.collapsible.active::after {
+  transform: translateY(-50%) rotate(-135deg);
+}
+/* Overlay background */
+.image-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    display: none; /* hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    cursor: pointer;
+}
+
+/* Enlarged image with smooth zoom */
+.image-overlay img {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.6);
+    transition: transform 0.3s ease;
+    transform: scale(0); /* start small */
+}
+
+/* When overlay is active, scale up */
+.image-overlay.show img {
+    transform: scale(3);
+}
+
+</style>
+</head>
+<body>
+<nav class="horizontal-nav">
+<div class="nav-container">
+<h1 class="logo"><img src="EXC.gif"></h1>
+<ul>
+<li><a href="./HOME.html">Home</a></li>
+<li><a href="A.html">Categories</a></li>
+<li><a href="./ABOUT_US.html">About Us</a></li>
+</ul>
+</div>
+</nav>
+
+<aside class="side-chatbot">
+<h3><img src="./Lance.gif"></h3> 
+<div id="chat-messages" class="chat-messages"></div>
+<div class="chat-input-area">
+<input type="text" id="chat-input" placeholder="Ask about Excel...">
+<button id="send-btn">Send</button>
+</div>
+</aside>
+
+<main id="content">
+<section id="home">
+<h2>Welcome to ExceLerate</h2>
+<p>Boost your business productivity with Excel techniques focused on sales recording. Browse guides and chat with our AI for help.</p>
+</section>
+
+<section id="categories">
+<h2>Explore Categories</h2>
+<div class="category-grid">
+<div class="category-card">
+<h3><a href="#data-entry">Data Entry & Basics</a></h3>
+<p>17 techniques for getting started with sales data.</p>
+</div>
+<div class="category-card">
+<h3><a href="#formulas">Formulas & Calculations</a></h3>
+<p>18 techniques for powerful computations.</p>
+</div>
+<div class="category-card">
+<h3><a href="#analysis">Analysis & Visualization</a></h3>
+<p>17 techniques for insights and charts.</p>
+</div>
+</div>
+</section>
+
+<!-- Data Entry & Basics -->
+<section id="data-entry">
+<h2>Data Entry & Basics (17 Techniques)</h2>
+<ol>
+<li><button class="collapsible">Keyboard shortcuts for navigation</button>
+<div class="content">
+<p><em>What it does:</em> Move quickly around your worksheet without using the mouse.</p>
+<ol>
+<li>Open your Excel worksheet.</li>
+<img src="./Untitled design.png" alt="Untitled design">
+<li>Use arrow keys to move cell by cell.</li>
+<img src="./2.png" alt="2">
+<li>Hold Ctrl + Arrow key to jump to the end of data ranges.</li>
+<img src="./3.png" alt="3">
+<br>
+</ol>
+</div></li>
+
+<li><button class="collapsible">AutoFill for repetitive data</button>
+<div class="content">
+<p><em>What it does:</em> Automatically fill sequences or repeat values.</p>
+<ol>
+<li>Enter the starting value in a cell (e.g., 1 or Jan).</li>
+<img src="./1) Enter the starting value in a cell.png" alt="">
+<li>Hover over the bottom-right corner until the cursor becomes a small plus (+).</li>
+<img src="./2) Hover over the bottom right corner until the cursor becomes a small plus.png" alt="">
+<li>Click and drag down or across to fill the series.</li>
+<img src="./3) Click and drag down or across to fill the series.png" alt="">
+</ol>
+</div></li>
+
+<li><button class="collapsible">Data validation for error-free entry</button>
+<div class="content">
+<p><em>What it does:</em> Restrict data entry to valid inputs only.</p>
+<ol>
+<li>Select the cells where you want to apply validation.</li>
+<img src="./D3-1.png" alt="">
+<li>Go to Data → Data Validation → Data Validation.</li>
+<img src="./D3-2.png" alt="">
+<li>Choose the type of validation (e.g., whole number, list).</li>
+<img src="./D3-3.png" alt="">
+<li>Set the criteria and click OK.</li>
+<img src="./D3-4.png" alt="">
+
+</ol>
+</div></li>
+
+<li><button class="collapsible">Drop-down lists using Data Validation</button>
+<div class="content">
+<p><em>What it does:</em> Let users select options from a predefined list.</p>
+<ol>
+<li>Select a cell or range.</li>
+<img src="./D_4-1.png" alt="">
+<li>Go to Data → Data Validation → List.</li>
+<img src="./D_4-2.png" alt="">
+<li>Enter the values or select a range containing the list.</li>
+<img src="./D_4-3.png" alt="">
+<li>Click OK and test the dropdown.</li>
+<img src="./D_4-4.png" alt="">
+
+</ol>
+</div></li>
+
+<li><button class="collapsible">Flash Fill</button>
+<div class="content">
+<p><em>What it does:</em> Automatically fills patterns based on example entries.</p>
+<ol>
+<li>Type the example pattern next to your data.</li>
+<img src="./D_5 - 1.png" alt="">
+<li>Go to Data → Flash Fill, or press Ctrl + E.</li>
+<img src="./D_5 - 2.png" alt="">
+<li>Excel fills remaining cells following the pattern.</li>
+<img src="./D_5 - 3.png" alt="">
+
+</ol>
+</div></li>
+
+<li><button class="collapsible">Freeze Panes</button>
+<div class="content">
+<p><em>What it does:</em> Keep row or column headers visible while scrolling.</p>
+<ol>
+<li>Select the cell below the row(s) and right of the column(s) to freeze.</li>
+<img src="./D_6 - 1.png" alt="">
+<li>Go to View → Freeze Panes → Freeze Panes.</li>
+<img src="./D_6 - 2.png" alt="">
+
+
+</ol>
+</div></li>
+
+<li><button class="collapsible">Merging and splitting cells</button>
+<div class="content">
+<p><em>What it does:</em> Combine or separate cells for better layout.</p>
+<ol>
+<li>Select cells to merge and click Home → Merge & Center.</li>
+<img src="./D_7 - 1.png" alt="">
+<li>To split, select merged cell → Home → Merge & Center → Unmerge Cells.</li>
+<img src="./D_7 - 2.png" alt="">
+
+</ol>
+</div></li>
+
+<li><button class="collapsible">Text to Columns</button>
+<div class="content">
+<p><em>What it does:</em> Split data from one column into multiple columns.</p>
+<ol>
+<li>Select the column with data to split.</li>
+<img src="./D_8 - 1.png" alt="">
+<li>Go to Data → Text to Columns.</li>
+<img src="./D_8 - 2.png" alt="">
+<li>Choose Delimited or Fixed Width and follow the wizard.</li>
+<img src="./D_8 - 3.png" alt="">
+
+</ol>
+</div></li>
+
+<li><button class="collapsible">Conditional formatting basics</button>
+<div class="content">
+<p><em>What it does:</em> Highlight data that meets certain conditions.</p>
+<ol>
+<li>Select the range to format.</li>
+<img src="./D_9 - 1.png" alt="">
+<li>Go to Home → Conditional Formatting → Highlight Cells Rules.</li>
+<img src="./D_9 - 3.png" alt="">
+<li>Set the condition and choose formatting.</li>
+<img src="./D_9 - 4.png" alt="">
+
+</ol>
+</div></li>
+
+<li><button class="collapsible">Custom number formatting</button>
+<div class="content">
+<p><em>What it does:</em> Display numbers, dates, or text in a custom way.</p>
+<ol>
+<li>Select cells to format.</li>
+<img src="./D_10 - 1.png" alt="">
+<li>Right-click → Format Cells → Number → Custom.</li>
+<img src="./D_10 - 2.png" alt="">
+<li>Enter the desired format code (e.g., #,##0; "USD" #,##0).</li>
+<img src="./D_10 - 3.png" alt="">
+
+</ol>
+</div></li>
+
+<li><button class="collapsible">Using tables</button>
+<div class="content">
+<p><em>What it does:</em> Organize data in a structured, filterable format.</p>
+<ol>
+<li>Select the range of data.</li>
+<img src="./D_11 - 1.png" alt="">
+<li>Go to Insert → Table and click OK.</li>
+<img src="./D_11 - 2.png" alt="">
+<li>Use table headers for sorting and filtering.</li>
+<img src="./D_11 - 3.png" alt="">
+
+</ol>
+</div></li>
+
+<li><button class="collapsible">Sorting and filtering data</button>
+<div class="content">
+<p><em>What it does:</em> Arrange and view only data that meets criteria.</p>
+<ol>
+<li>Select your data range.</li>
+<img src="./D_12 - 1.png" alt="">
+<li>Go to Data → Sort or Filter.</li>
+<img src="./D_12 - 2.png" alt="">
+<li>Apply criteria to organize your data.</li>
+<img src="./D_12 - 3.png" alt="">
+
+</ol>
+</div></li>
+
+<li><button class="collapsible">Named ranges</button>
+<div class="content">
+<p><em>What it does:</em> Assign a name to a cell or range for easier reference in formulas.</p>
+<ol>
+<li>Select the cell/range.</li>
+<img src="./D_13 - 1.png" alt="">
+<li>Click in the Name Box, type a name, press Enter.</li>
+<img src="./D_13 - 2.png" alt="">
+<li>Use the name in formulas instead of cell references.</li>
+<img src="./D_13 - 3.png" alt="">
+
+</ol>
+</div></li>
+
+<li><button class="collapsible">Keyboard formatting shortcuts</button>
+<div class="content">
+<p><em>What it does:</em> Apply formatting quickly using the keyboard.</p>
+<ol>
+<li>Ctrl + B for bold, Ctrl + I for italics, Ctrl + U for underline.</li>
+<img src="./D_14 - 1.png" alt="">
+<li>Ctrl + Shift + $ for currency, Ctrl + Shift + % for percentage.</li>
+<img src="./D_14 - 2.png" alt="">
+
+</ol>
+</div></li>
+
+<li><button class="collapsible">Protecting sheets and cells</button>
+<div class="content">
+<p><em>What it does:</em> Prevent accidental editing of important data.</p>
+<ol>
+<li>Go to Review → Protect Sheet.</li>
+<img src="./D_15 - 1.png" alt="">
+<li>Set a password and select which actions are allowed.</li>
+<img src="./D_15 - 2.png" alt="">
+<li>Click OK to protect your sheet.</li>
+<img src="./D_15 - 3.png" alt="">
+
+</ol>
+</div></li>
+
+<li><button class="collapsible">Go To Special</button>
+<div class="content">
+<p><em>What it does:</em> Quickly select specific types of cells (blanks, formulas, etc.).</p>
+<ol>
+<li>Press F5 → Special.</li>
+<img src="./D_16 - 1.png" alt="">
+<li>Select the type of cell to highlight.</li>
+<img src="./D_16 - 2.png" alt="">
+<li>Click OK to select them.</li>
+<img src="./D_16 - 3.png" alt="">
+
+</ol>
+</div></li>
+
+<li><button class="collapsible">Basic error checking</button>
+<div class="content">
+<p><em>What it does:</em> Identify and correct errors in data.</p>
+<ol>
+<li>Look for small green triangles in cells.</li>
+<img src="./D_17 - 1.png" alt="">
+<li>Click the warning icon → Select the appropriate correction.</li>
+<img src="./D_17 - 2.png" alt="">
+
+</ol>
+</div></li>
+</ol>
+</section>
+
+<!-- Formulas & Calculations -->
+<section id="formulas">
+<h2>Formulas & Calculations (18 Techniques)</h2>
+<ol>
+<li><button class="collapsible">SUM, AVERAGE, MIN, MAX</button>
+<div class="content">
+<p><em>What it does:</em> Calculate totals, averages, and extreme values.</p>
+<ol>
+<li>Select the cell for the result.</li>
+<img src="./F_1 - 1.png" alt="">
+<li>Type =SUM(range) or =AVERAGE(range) or =MIN(range)/=MAX(range).</li>
+<img src="./F_1 - 2.png" alt="">
+<li>Press Enter to see the result.</li>
+<img src="./F_1 - 3.png" alt="">
+</ol>
+</div></li>
+
+<li><button class="collapsible">COUNT and COUNTA</button>
+<div class="content">
+<p><em>What it does:</em> Count numbers or all non-empty cells in a range.</p>
+<ol>
+<li>Type =COUNT(range) to count numeric cells.</li>
+<img src="./F_2 - 1.png" alt="">
+<li>Type =COUNTA(range) to count all non-empty cells.</li>
+<img src="./F_2 - 3.png" alt="">
+<li>Press Enter.</li>
+<img src="./F_2 - 3.png" alt="">
+</ol>
+</div></li>
+
+<li><button class="collapsible">IF Function</button>
+<div class="content">
+<p><em>What it does:</em> Make decisions based on conditions.</p>
+<ol>
+<li>Select a cell to enter the formula.</li>
+<img src="./F_3 - 1.png" alt="">
+<li>Type =IF(condition, value_if_true, value_if_false).</li>
+<img src="./F_3 - 2.png" alt="">
+<li>Press Enter to apply.</li>
+<img src="./F_3 - 3.png" alt="">
+</ol>
+</div></li>
+
+<li><button class="collapsible">Nested IFs</button>
+<div class="content">
+<p><em>What it does:</em> Handle multiple conditions in one formula.</p>
+<ol>
+<li>Type =IF(condition1, value1, IF(condition2, value2, value3)).</li>
+<img src="./F_4 - 1.png" alt="">
+<li>Press Enter to see the result.</li>
+<img src="./F_4 - 2.png" alt="">
+</ol>
+</div></li>
+
+<li><button class="collapsible">VLOOKUP</button>
+<div class="content">
+<p><em>What it does:</em> Lookup values vertically in a table.</p>
+<ol>
+<li>Type =VLOOKUP(lookup_value, table_range, column_index, FALSE).</li>
+<img src="./F_5 - 1.png" alt="">
+<li>Press Enter to find matching data.</li>
+<img src="./F_5 - 2.png" alt="">
+</ol>
+</div></li>
+
+<li><button class="collapsible">HLOOKUP</button>
+<div class="content">
+<p><em>What it does:</em> Lookup values horizontally in a table.</p>
+<ol>
+<li>Type =HLOOKUP(lookup_value, table_range, row_index, FALSE).</li>
+<img src="./F_6 - 1.png" alt="">
+<li>Press Enter to find matching data.</li>
+<img src="./F_6 - 2.png" alt="">
+</ol>
+</div></li>
+
+<li><button class="collapsible">INDEX & MATCH</button>
+<div class="content">
+<p><em>What it does:</em> Advanced lookup combining INDEX and MATCH for flexibility.</p>
+<ol>
+<li>Type =INDEX(return_range, MATCH(lookup_value, lookup_range, 0)).</li>
+<img src="./F_7 - 1.png" alt="">
+<li>Press Enter to retrieve the result.</li>
+<img src="./F_7 - 2.png" alt="">
+</ol>
+</div></li>
+
+<li><button class="collapsible">TEXT Functions (LEFT, RIGHT, MID)</button>
+<div class="content">
+<p><em>What it does:</em> Extract specific text from cells.</p>
+<ol>
+<li>Use =LEFT(text, num_chars), =RIGHT(text, num_chars), or =MID(text, start_num, num_chars).</li>
+<img src="./F_8 - 1.png" alt="">
+<li>Press Enter to extract desired text.</li>
+<img src="./F_8 - 2.png" alt="">
+</ol>
+</div></li>
+
+<li><button class="collapsible">CONCAT / TEXTJOIN</button>
+<div class="content">
+<p><em>What it does:</em> Combine text from multiple cells.</p>
+<ol>
+<li>Type =CONCAT(A1,B1) or =TEXTJOIN(" ", TRUE, A1:A3).</li>
+<img src="./F_9 - 1.png" alt="">
+<li>Press Enter to see combined text.</li>
+<img src="./F_9 - 2.png" alt="">
+</ol>
+</div></li>
+
+<li><button class="collapsible">ROUND, ROUNDUP, ROUNDDOWN</button>
+<div class="content">
+<p><em>What it does:</em> Round numbers to desired decimal places.</p>
+<ol>
+<li>Type =ROUND(number, num_digits), =ROUNDUP(number, num_digits), or =ROUNDDOWN(number, num_digits).</li>
+<img src="./F_10 - 1.png" alt="">
+<li>Press Enter to round.</li>
+<img src="./F_10 - 2.png" alt="">
+</ol>
+</div></li>
+
+<li><button class="collapsible">ABS Function</button>
+<div class="content">
+<p><em>What it does:</em> Get the absolute value of a number.</p>
+<ol>
+<li>Type =ABS(number).</li>
+<img src="./F_11 - 1.png" alt="">
+<li>Press Enter to see the positive value.</li>
+<img src="./F_11 - 2.png" alt="">
+</ol>
+</div></li>
+
+<li><button class="collapsible">NOW() and TODAY()</button>
+<div class="content">
+<p><em>What it does:</em> Insert current date and time or only date.</p>
+<ol>
+<li>Type =NOW() for date and time.</li>
+<img src="./F_12 - 1.png" alt="">
+<li>Type =TODAY() for only the date.</li>
+<img src="./F_12 - 2.png" alt="">
+<li>Press Enter to apply.</li>
+<img src="./F_12 - 3.png" alt="">
+</ol>
+</div></li>
+
+<li><button class="collapsible">PMT Function</button>
+<div class="content">
+<p><em>What it does:</em> Calculate loan payments based on interest, periods, and principal.</p>
+<ol>
+<li>Type =PMT(rate, nper, pv).</li>
+<img src="./F_13 - 1.png" alt="">
+<li>Press Enter to calculate the payment.</li>
+<img src="./F_13 - 2.png" alt="">
+</ol>
+</div></li>
+
+<li><button class="collapsible">Logical Functions (AND, OR)</button>
+<div class="content">
+<p><em>What it does:</em> Combine multiple conditions logically.</p>
+<ol>
+<li>Type =AND(condition1, condition2) or =OR(condition1, condition2).</li>
+<img src="./F_14 - 1.png" alt="">
+<li>Press Enter to get TRUE or FALSE.</li>
+<img src="./F_14 - 2.png" alt="">
+</ol>
+</div></li>
+
+<li><button class="collapsible">Error Handling (IFERROR)</button>
+<div class="content">
+<p><em>What it does:</em> Replace errors with custom values.</p>
+<ol>
+<li>Type =IFERROR(formula, "Custom message").</li>
+<img src="./F_15 - 1.png" alt="">
+<li>Press Enter to see either result or message.</li>
+<img src="./F_15 - 2.png" alt="">
+</ol>
+</div></li>
+
+<li><button class="collapsible">OFFSET Function</button>
+<div class="content">
+<p><em>What it does:</em> Reference a range offset from a starting point.</p>
+<ol>
+<li>Type =OFFSET(reference, rows, cols, [height], [width]).</li>
+<img src="./F_16 - 1.png" alt="">
+<li>Press Enter to get the referenced range.</li>
+<img src="./F_16 - 2.png" alt="">
+</ol>
+</div></li>
+
+<li><button class="collapsible">CHOOSE Function</button>
+<div class="content">
+<p><em>What it does:</em> Pick a value from a list based on index.</p>
+<ol>
+<li>Type =CHOOSE(index, value1, value2, ...).</li>
+<img src="./F_17 - 1.png" alt="">
+<li>Press Enter to return the chosen value.</li>
+<img src="./F_17 - 2.png" alt="">
+</ol>
+</div></li>
+
+<li><button class="collapsible">SUBTOTAL Function</button>
+<div class="content">
+<p><em>What it does:</em> Calculate sum, average, count, etc., while ignoring hidden rows.</p>
+<ol>
+<li>Type =SUBTOTAL(function_num, range).</li>
+<img src="./F_18 - 1.png" alt="">
+<li>Press Enter to apply.</li>
+<img src="./F_18 - 2.png" alt="">
+</ol>
+</div></li>
+</ol>
+</section>
+
+<!-- Analysis & Visualization -->
+<section id="analysis">
+<h2>Analysis & Visualization (17 Techniques)</h2>
+<ol>
+<li><button class="collapsible">Sorting and filtering</button>
+<div class="content">
+<p><em>What it does:</em> Organize and view only relevant data.</p>
+<ol>
+<li>Select your dataset.</li>
+<img src="./A1 -1.png" alt="A1-1">
+<li>Go to Data → Sort or Filter.</li>
+<img src="./A1-2.png" alt="A1-2">
+<li>Choose criteria to organize or display specific data.</li>
+<img src="./A1-3.png" alt="A1-3">
+</ol>
+</div></li>
+
+<li><button class="collapsible">Pivot Tables</button>
+<div class="content">
+<p><em>What it does:</em> Summarize and analyze data quickly.</p>
+<ol>
+<li>Select your dataset.</li>
+<img src="./A2-1.png" alt="A2-1">
+<li>Go to Insert → Pivot Table.</li>
+<img src="./A2-2.png" alt="A2-2">
+<li>Choose where to place the Pivot Table and click OK.</li>
+<img src="./A2-3.png" alt="A2-3">
+<li>Drag fields to Rows, Columns, and Values areas.</li>
+<img src="./A2-4.png" alt="A2-4">
+</ol>
+</div></li>
+
+<li><button class="collapsible">Pivot Charts</button>
+<div class="content">
+<p><em>What it does:</em> Create charts based on Pivot Table data.</p>
+<ol>
+<li>Click anywhere in the Pivot Table.</li>
+<img src="./A3-1.png" alt="A3-1">
+<li>Go to PivotTable Analyze → PivotChart.</li>
+<img src="./A3-2.png" alt="A3-2">
+<li>Choose chart type and click OK.</li>
+<img src="./A3-3.png" alt="A3-3">
+</ol>
+</div></li>
+
+<li><button class="collapsible">Conditional formatting for analysis</button>
+<div class="content">
+<p><em>What it does:</em> Highlight trends or outliers in data.</p>
+<ol>
+<li>Select range.</li>
+<img src="" alt="">
+<li>Go to Home → Conditional Formatting → Color Scales/Data Bars/Icons.</li>
+<img src="" alt="">
+
+<li>Adjust as needed.</li>
+<img src="" alt="">
+</ol>
+</div></li>
+
+<li><button class="collapsible">Sparklines</button>
+<div class="content">
+<p><em>What it does:</em> Small charts inside cells showing trends.</p>
+<ol>
+<li>Select the data range.</li>
+<img src="" alt="">
+<li>Go to Insert → Sparklines → Line/Column/Win/Loss.</li>
+<img src="" alt="">
+<li>Set location range and click OK.</li>
+<img src="" alt="">
+</ol>
+</div></li>
+
+<li><button class="collapsible">Charts (Bar, Column, Line)</button>
+<div class="content">
+<p><em>What it does:</em> Visualize data effectively.</p>
+<ol>
+<li>Select the data.</li>
+<img src="./A6_1.png" alt="">
+<li>Go to Insert → Choose chart type.</li>
+<img src="./A6_2.png" alt="">
+<li>Customize chart title, axis, and style.</li>
+<img src="./A6_3.png" alt="">
+</ol>
+</div></li>
+
+<li><button class="collapsible">Combo Charts</button>
+<div class="content">
+<p><em>What it does:</em> Combine two chart types for comparison.</p>
+<ol>
+<li>Create a chart with multiple series.</li>
+<img src="./A7 - 1.png" alt="">
+<li>Right-click → Change Chart Type → Combo.</li>
+<img src="./A7 - 2.png" alt="">
+<li>Select chart types for each series.</li>
+<img src="./A7 - 3.png" alt="">
+<li>Click OK.</li>
+<img src="./A7 - 4.png" alt="">
+</ol>
+</div></li>
+
+<li><button class="collapsible">Goal Seek</button>
+<div class="content">
+<p><em>What it does:</em> Find input value to achieve desired output.</p>
+<ol>
+<li>Go to Data → What-If Analysis → Goal Seek.</li>
+<img src="./A8 - 1.png" alt="">
+<li>Set cell, desired value, and changing cell.</li>
+<img src="./A8 - 2.png" alt="">
+<li>Click OK.</li>
+<img src="./A8 - 3.png" alt="">
+</ol>
+</div></li>
+
+<li><button class="collapsible">Scenario Manager</button>
+<div class="content">
+<p><em>What it does:</em> Test different scenarios on your data.</p>
+<ol>
+<li>Go to Data → What-If Analysis → Scenario Manager.</li>
+<img src="" alt="">
+<li>Add scenarios with different input values.</li>
+<img src="" alt="">
+<li>Show summary to compare results.</li>
+<img src="" alt="">
+</ol>
+</div></li>
+
+<li><button class="collapsible">Data Tables</button>
+<div class="content">
+<p><em>What it does:</em> Analyze multiple input variations in a table format.</p>
+<ol>
+<li>Set up input cells and formula cell.</li>
+<li>Go to Data → What-If Analysis → Data Table.</li>
+<li>Specify row/column input cell and click OK.</li>
+</ol>
+</div></li>
+
+<li><button class="collapsible">Forecast Sheet</button>
+<div class="content">
+<p><em>What it does:</em> Predict future trends based on historical data.</p>
+<ol>
+<li>Select your time-based data.</li>
+<li>Go to Data → Forecast Sheet.</li>
+<li>Adjust settings and click Create.</li>
+</ol>
+</div></li>
+
+<li><button class="collapsible">Descriptive statistics (Analysis ToolPak)</button>
+<div class="content">
+<p><em>What it does:</em> Quickly calculate mean, median, std deviation, etc.</p>
+<ol>
+<li>Enable Analysis ToolPak: File → Options → Add-Ins → Analysis ToolPak.</li>
+<li>Go to Data → Data Analysis → Descriptive Statistics.</li>
+<li>Select range and output options.</li>
+<li>Click OK.</li>
+</ol>
+</div></li>
+
+<li><button class="collapsible">Histogram</button>
+<div class="content">
+<p><em>What it does:</em> Show frequency distribution of data.</p>
+<ol>
+<li>Go to Data → Data Analysis → Histogram.</li>
+<li>Select input range and bin range.</li>
+<li>Choose output and click OK.</li>
+</ol>
+</div></li>
+
+<li><button class="collapsible">Correlation Analysis</button>
+<div class="content">
+<p><em>What it does:</em> Measure relationship between two variables.</p>
+<ol>
+<li>Go to Data → Data Analysis → Correlation.</li>
+<img src="./A14 - 1.png" alt="">
+<li>Select input range.</li>
+<img src="./A14 - 2.png" alt="">
+<li>Choose output range and click OK.</li>
+<img src="./A14 - 3.png" alt="">
+</ol>
+</div></li>
+
+<li><button class="collapsible">Conditional Charts</button>
+<div class="content">
+<p><em>What it does:</em> Change chart appearance based on conditions.</p>
+<ol>
+<li>Apply conditional formatting or helper series.</li>
+<li>Format chart series to highlight conditions.</li>
+</ol>
+</div></li>
+
+<li><button class="collapsible">Dynamic Named Ranges for charts</button>
+<div class="content">
+<p><em>What it does:</em> Automatically update chart ranges as data grows.</p>
+<ol>
+<li>Define a dynamic named range using OFFSET and COUNTA.</li>
+<li>Use the name in chart series.</li>
+</ol>
+</div></li>
+
+<li><button class="collapsible">Advanced Filtering</button>
+<div class="content">
+<p><em>What it does:</em> Filter data based on complex criteria.</p>
+<ol>
+<li>Select your dataset.</li>
+<img src="./A17 - 1.png" alt="">
+<li>Go to Data → Advanced.</li>
+<img src="./A17 - 2.png" alt="">
+<li>Set criteria range and choose to filter in place or copy.</li>
+<img src="./A17 - 3.png" alt="">
+<li>Click OK.</li>
+<img src="./A17 - 4.png" alt="">
+</ol>
+</div></li>
+</ol>
+</section>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+const collapsibles = document.querySelectorAll(".collapsible");
+collapsibles.forEach(btn => {
+btn.addEventListener("click", function () {
+this.classList.toggle("active");
+const content = this.nextElementSibling;
+if (content.style.display === "block") {
+content.style.display = "none";
+} else {
+content.style.display = "block";
+}
+});
+});
+});
+
+</script>
+<script src="techniques.js"></script>
+<script src="chatbot.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const overlay = document.getElementById("imageOverlay");
+    const overlayImg = document.getElementById("overlayImage");
+    const images = document.querySelectorAll(".content img");
+
+    images.forEach(img => {
+        img.addEventListener("click", function() {
+            overlayImg.src = this.src;
+            overlay.style.display = "flex"; // show overlay
+            // trigger zoom after small delay to allow render
+            setTimeout(() => overlay.classList.add("show"), 10);
+            document.body.style.overflow = "hidden"; // prevent scrolling
+        });
+    });
+
+    overlay.addEventListener("click", function(e) {
+        overlay.classList.remove("show"); // zoom out
+        setTimeout(() => {
+            overlay.style.display = "none";
+            overlayImg.src = "";
+            document.body.style.overflow = "auto";
+        }, 300); // wait for zoom-out animation
+    });
+
+    document.addEventListener("keydown", function(e) {
+        if (e.key === "Escape") {
+            overlay.classList.remove("show");
+            setTimeout(() => {
+                overlay.style.display = "none";
+                overlayImg.src = "";
+                document.body.style.overflow = "auto";
+            }, 300);
+        }
+    });
+});
+
+</script>
+<div class="image-overlay" id="imageOverlay">
+    <img id="overlayImage" src="">
+</div>
+</body>
+<div class="container">
+    <h2>Leave a Comment</h2>
+
+    <input type="text" id="name" placeholder="Your Name">
+    <textarea id="comment" placeholder="Your Comment"></textarea>
+    <button onclick="sendComment()">Submit</button>
+
+    <p id="status"></p>
+</div>
+<style>
+    body {
+    background: #f4f4f4;
+    font-family: Arial;
+}
+
+.container {
+    width:1100px;
+    margin: 40px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+input, textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+}
+
+button {
+    width: 30%;
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="./script.js"></script>
+</section>
+</html>

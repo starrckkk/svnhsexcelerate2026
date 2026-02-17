@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ExceLerate - Excel Techniques for Business</title>
+<link rel="stylesheet" href="F.css">
+<script src="app.js" defer></script>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* Collapsible styles */
+.collapsible {
+    background-color: #f1f1f1;
+    color: #333;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    font-weight: bold;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.collapsible:hover {
+    background-color: #ddd;
+}
+
+.content {
+    padding: 0 15px;
+    display: none;
+    overflow: hidden;
+    background-color: #fafafa;
+    margin-bottom: 5px;
+    border-left: 3px solid #0078d4;
+}
+</style>
+</head>
+<body>
+<nav class="horizontal-nav">
+<div class="nav-container">
+<h1 class="logo"><img src="EXC.gif"></h1>
+<ul>
+<li><a href="./HOME.html">Home</a></li>
+<li><a href="A.html">Categories</a></li>
+<li><a href="./ABOUT_US.html">About Us</a></li>
+<li><a href="https://www.microsoft.com/en-us/microsoft-365/excel" target="_blank">Get Excel</a></li>
+</ul>
+</div>
+</nav>
+
+<main id="content">
+<section id="home">
+<h2>Welcome to ExceLerate</h2>
+<p>Boost your business productivity with Excel techniques focused on sales recording. Browse guides and chat with our AI for help.</p>
+<img src="./bblu.gif" alt="Blue and White Modern Organizational Structure" srcset="Blue and White">
+<img src="./Blue and White Modern Organizational Structure A4.gif">
+</section>
+
+</body>
+<div class="container">
+    <h2>Leave a Comment</h2>
+
+    <input type="text" id="name" placeholder="Your Name">
+    <textarea id="comment" placeholder="Your Comment"></textarea>
+    <button onclick="sendComment()">Submit</button>
+
+    <p id="status"></p>
+</div>
+<style>
+    
+   body {
+    background: #f4f8ff;
+    font-family: "Segoe UI", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Main container */
+.container {
+    width: 1294px;
+    height:max-content;
+    margin: 50px auto;
+    background: #ffffff;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 86, 179, 0.15);
+}
+
+/* Inputs & textarea */
+input,
+textarea {
+    width: 100%;
+    margin-bottom: 14px;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #cfe2ff;
+    font-size: 14px;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Focus effect */
+input:focus,
+textarea:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.15);
+}
+
+/* Textarea resizing */
+textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+/* Button */
+button {
+    width: 30%;
+    padding: 12px;
+    background: linear-gradient(135deg, #0d6efd, #0b5ed7);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease;
+}
+
+/* Hover & active states */
+button:hover {
+    box-shadow: 0 8px 18px rgba(13, 110, 253, 0.35);
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 10px rgba(13, 110, 253, 0.25);
+}
+
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="./script.js"></script>
+</section>
+</html>
