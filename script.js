@@ -1,5 +1,5 @@
 (function(){
-    emailjs.init("YKHiaKKtzN_hMXrN9");
+    emailjs.init("AW9TM2Vr8l_flAMEp");
 })();
 
 function sendComment() {
@@ -8,7 +8,7 @@ function sendComment() {
         message: document.getElementById("comment").value
     };
 
-    emailjs.send("service_li8jfu4", "template_inxp7vk", params)
+    emailjs.send("excelerate", "template_deka25q", params)
         .then(() => {
             document.getElementById("status").innerText = "Comment sent to Gmail ✅";
         })
